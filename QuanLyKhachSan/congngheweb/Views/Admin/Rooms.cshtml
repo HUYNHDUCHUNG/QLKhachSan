@@ -1,0 +1,64 @@
+﻿@model List<congngheweb.Models.room>
+@{
+    ViewBag.Title = "Rooms";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Container Fluid-->
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@ViewBag.title</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item active" aria-current="page">@ViewBag.title</li>
+        </ol>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-10 mb-4">
+            <a href="~/Admin/Addroom" class="btn btn-primary mb-1">Add Room</a>
+            <!-- Simple Tables -->
+            <div class="card">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">@ViewBag.title</h6>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Room number</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var room in Model)
+                            {
+                                <tr>
+                                    <td>@room.room_number</td>
+                                    <td>@room.price</td>
+                                    <td>@room.room_status.status</td>
+                                    <td>
+                                        <a href="~/Admin/Editroom/@room.id" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="~/Admin/Delroom/@room.id" class="btn btn-sm btn-danger">Delete</a>
+                                    </td>
+
+                                    <!-- Thêm các cột khác tương ứng -->
+                                </tr>
+                            }
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+    </div>
+    <!--Row-->
+
+</div>
+<!---Container Fluid-->

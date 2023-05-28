@@ -1,0 +1,71 @@
+﻿@model List<congngheweb.Models.comment>
+@{
+    ViewBag.Title = "Comment";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@ViewBag.title</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item active" aria-current="page">@ViewBag.title</li>
+        </ol>
+    </div>
+
+    <!-- Message From Customer-->
+    <div class="col-xl-8 col-lg-5">
+        <div class="card">
+            <div class="card-header py-4 bg-primary d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-light">Message From Customer</h6>
+            </div>
+            <div>
+                @foreach (var cm in Model)
+                {
+                    <div class="customer-message align-items-center">
+                        <h6 class="font-weight-bold" style="padding-left:21px"><span class="small">from</span> @cm.email</h6>
+                        <a class="font-weight-bold" href="#">
+
+                            <div class="message-title">
+                                @cm.message
+                            </div>
+                            <div class="small text-gray-500 message-time font-weight-bold">@cm.fullname · @(cm.created_at.HasValue ? cm.GetTimeElapsed(cm.created_at.Value) : "")</div>
+                        </a>
+                    </div>
+                }
+
+                @*<div class="customer-message align-items-center">
+                    <a href="#">
+                        <div class="text-truncate message-title">
+                            But I must explain to you how all this mistaken idea
+                        </div>
+                        <div class="small text-gray-500 message-time">Nana Haminah · 58m</div>
+                    </a>
+                </div>
+                <div class="customer-message align-items-center">
+                    <a class="font-weight-bold" href="#">
+                        <div class="text-truncate message-title">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </div>
+                        <div class="small text-gray-500 message-time font-weight-bold">Jajang Cincau · 25m</div>
+                    </a>
+                </div>
+                <div class="customer-message align-items-center">
+                    <a class="font-weight-bold" href="#">
+                        <div class="text-truncate message-title">
+                            At vero eos et accusamus et iusto odio dignissimos
+                            ducimus qui blanditiis
+                        </div>
+                        <div class="small text-gray-500 message-time font-weight-bold">Udin Wayang · 54m</div>
+                    </a>
+                </div>*@
+                <div class="card-footer text-center">
+                    <a class="m-0 small text-primary card-link" href="#">
+                        View More <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

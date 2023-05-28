@@ -1,0 +1,47 @@
+﻿@model List<congngheweb.Models.room_status>
+@{
+    ViewBag.Title = "Addroom";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+}
+
+<!-- Container Fluid-->
+<div class="container-fluid" id="container-wrapper">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@ViewBag.title</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item active" aria-current="page">@ViewBag.title</li>
+        </ol>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Add Room</h6>
+        </div>
+        <div class="card-body">
+            <form action="~/Admin/_Addroom" method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Room number:</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="number">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Price:</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="price">
+                </div>
+                <select class="form-control mb-3" name="status">
+                    @foreach (var status in Model)
+                    {
+                        <option value="@status.id">@status.status</option>
+                    }
+
+                </select>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<!---Container Fluid-->

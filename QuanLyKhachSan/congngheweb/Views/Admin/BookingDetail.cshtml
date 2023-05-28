@@ -1,0 +1,90 @@
+﻿@model congngheweb.Models.booking
+@{
+    ViewBag.Title = "BookingDetail";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="container-fluid" id="container-wrapper">
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@ViewBag.title</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./">Home</a></li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item active" aria-current="page">@ViewBag.title</li>
+        </ol>
+    </div>
+
+    <div class="card mb-4 col-md-10">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">@ViewBag.title</h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group" id="simple-date2">
+                        <label for="oneYearView">Code</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" value="@Model.code">
+                        </div>
+                    </div>
+                    <div class="form-group" id="simple-date2">
+                        <label for="oneYearView">Customer</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" value="@Model.fullname">
+                        </div>
+                    </div>
+                    <div class="form-group" id="simple-date2">
+                        <label for="oneYearView">Phone</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" value="@Model.phonenumber">
+                        </div>
+                    </div>
+                    <div class="form-group" id="simple-date2">
+                        <label for="oneYearView">Email</label>
+                        <div class="input-group date">
+                            <input type="email" class="form-control" value="@Model.email">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="form-group" id="simple-date2">
+                        <label for="oneYearView">Guest</label>
+                        <div class="input-group date">
+                            <input type="email" class="form-control" value="@Model.guest">
+                        </div>
+                    </div>
+                    <div class="form-group" id="simple-date2">
+                        <label for="oneYearView">Room</label>
+                        <div class="input-group date">
+                            <input type="email" class="form-control" value="@Model.room">
+                        </div>
+                    </div>
+                    <div class="form-group" id="simple-date2">
+                        <label for="oneYearView">Check in</label>
+                        <div class="input-group date">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                            </div>
+                            <input type="text" class="form-control" value="@Model.checkin" id="oneYearView">
+                        </div>
+                    </div>
+                    <div class="form-group" id="simple-date3">
+                        <label for="decadeView">Check out</label>
+                        <div class="input-group date">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                            </div>
+                            <input type="text" class="form-control" value="@Model.checkout" id="decadeView">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+           
+        </div>
+    </div>
+
+</div>
